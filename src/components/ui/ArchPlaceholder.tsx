@@ -3,11 +3,11 @@
  * automatically when a real photo exists at the item's `image` path.
  */
 const TONES = [
-  ["#d9d3c6", "#b9ad98", "#8c7f6a", "#3a3631"],
-  ["#d6d8d2", "#a9aea4", "#6f766c", "#2b2e2a"],
-  ["#e0d6c8", "#c9b79c", "#9a8365", "#413528"],
+  ["#dcdcdc", "#b4b4b4", "#7c7c7c", "#2e2e2e"],
+  ["#d6d8d8", "#a9acac", "#6f7272", "#2b2d2d"],
+  ["#e2e2e2", "#c0c0c0", "#8a8a8a", "#363636"],
   ["#cfd2d6", "#9ea4ad", "#5f6670", "#23262b"],
-  ["#dcd4cc", "#bfa89a", "#8a6e5f", "#33261f"],
+  ["#dedede", "#b8b8b8", "#808080", "#2a2a2a"],
 ];
 
 function hash(s: string) {

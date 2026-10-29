@@ -26,7 +26,7 @@ export function DemoBadge({ className = "" }: { className?: string }) {
   return (
     <span
       title="Placeholder content. Not yet verified by the photographer."
-      className={`inline-block border border-current px-1.5 py-[1px] text-[9px] font-medium uppercase tracking-[0.14em] ${className}`}
+      className={`inline-block border border-current px-1.5 py-[1px] text-[9px] font-normal uppercase tracking-[0.14em] ${className}`}
     >
       Demo content
     </span>
@@ -41,7 +41,7 @@ export function ButtonLink({
     outline: "border border-ink text-ink hover:bg-ink hover:text-cream",
     light: "border border-cream/60 text-cream hover:bg-cream hover:text-ink",
   }[variant];
-  const cls = `inline-flex items-center gap-2 px-6 py-3.5 text-[0.78rem] font-medium uppercase tracking-[0.14em] transition-colors duration-300 ${styles} ${className}`;
+  const cls = `inline-flex items-center gap-2 px-6 py-3.5 text-[0.78rem] font-normal uppercase tracking-[0.14em] transition-colors duration-300 ${styles} ${className}`;
   return /^https?:/.test(href) ? (
     <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>{children}</a>
   ) : (

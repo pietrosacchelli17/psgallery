@@ -5,7 +5,7 @@
   --color-paper: #0b0b0b;
   --color-line: rgba(255, 255, 255, 0.18);
   --color-ink: #ffffff;
-  --color-mute: rgba(255, 255, 255, 0.6);
+  --color-mute: rgba(255, 255, 255, 0.7);
   --color-stone: #c4ad8e;
   --color-stone-deep: #c4ad8e;
   --font-display: var(--font-serif), "Iowan Old Style", "Palatino Linotype", serif;
@@ -23,7 +23,7 @@ body {
   background: var(--color-cream);
   color: var(--color-ink);
   font-family: var(--font-sans);
-  font-weight: 400;
+  font-weight: 300;
   font-size: 15px;
   letter-spacing: 0.04em;
   line-height: 1.65;
@@ -45,7 +45,7 @@ body {
   font-size: 0.72rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-mute);
 }
 .display {
@@ -57,6 +57,9 @@ body {
 .h1 { font-size: clamp(2.6rem, 6vw, 5.2rem); }
 .h2 { font-size: clamp(2rem, 4vw, 3.4rem); }
 .h3 { font-size: clamp(1.45rem, 2.2vw, 1.9rem); line-height: 1.1; }
+
+/* Headings stay upright; the accent colour does the emphasis. */
+em { font-style: normal; }
 
 /* Scroll reveal */
 .reveal {

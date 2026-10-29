@@ -9,7 +9,7 @@ export function Footer() {
       <Container className="grid gap-12 py-16 md:grid-cols-12">
         <div className="md:col-span-6">
           <Wordmark className="text-5xl" light />
-          <p className="font-display mt-4 max-w-[26ch] text-2xl font-light italic leading-snug text-white/80">{SITE.tagline}</p>
+          <p className="font-display mt-4 max-w-[26ch] text-2xl font-light leading-snug text-white/80">{SITE.tagline}</p>
         </div>
         <nav aria-label="Footer" className="grid grid-cols-2 gap-10 md:col-span-6">
           <div>

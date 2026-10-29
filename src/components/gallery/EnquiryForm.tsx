@@ -46,7 +46,7 @@ export function EnquiryForm({ kind, prefill }: Props) {
 
   return (
     <form onSubmit={submit} noValidate className="space-y-6" aria-label={kind === "licensing" ? "Licensing enquiry" : "Contact form"}>
-      <p className="inline-block border border-current px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.14em] text-mute">Prototype form: nothing is sent</p>
+      <p className="inline-block border border-current px-2 py-0.5 text-[10px] font-normal uppercase tracking-[0.14em] text-mute">Prototype form: nothing is sent</p>
       <div className="grid gap-6 sm:grid-cols-2">
         <label className="block text-sm">Name
           <input name="name" autoComplete="name" className={field} {...inv("name")} />
@@ -80,7 +80,7 @@ export function EnquiryForm({ kind, prefill }: Props) {
         <textarea name="message" rows={6} className={field} {...inv("message")} />
         {err("message")}
       </label>
-      <button type="submit" className="bg-ink px-7 py-3.5 text-[0.78rem] font-medium uppercase tracking-[0.14em] text-cream transition-colors hover:bg-stone-deep">
+      <button type="submit" className="bg-ink px-7 py-3.5 text-[0.78rem] font-normal uppercase tracking-[0.14em] text-cream transition-colors hover:bg-stone-deep">
         {kind === "licensing" ? "Send licensing enquiry" : "Send message"}
       </button>
     </form>

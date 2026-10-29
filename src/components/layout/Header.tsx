@@ -34,7 +34,7 @@ export function Header() {
               key={n.href}
               href={n.href}
               aria-current={active(n.href) ? "page" : undefined}
-              className={`link-u py-1 text-[0.72rem] font-medium uppercase tracking-[0.14em] ${active(n.href) ? "text-ink" : "text-mute hover:text-ink"}`}
+              className={`link-u py-1 text-[0.72rem] font-normal uppercase tracking-[0.14em] ${active(n.href) ? "text-ink" : "text-mute hover:text-ink"}`}
             >
               {n.label}
             </Link>

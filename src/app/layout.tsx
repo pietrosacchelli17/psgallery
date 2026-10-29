@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Newsreader } from "next/font/google";
+import { Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
-const serif = Newsreader({
+const serif = Source_Serif_4({
   variable: "--font-serif",
   subsets: ["latin"],
   weight: ["300", "400", "500"],

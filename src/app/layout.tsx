@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { Source_Serif_4 } from "next/font/google";
+import { Jost } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
-const serif = Source_Serif_4({
+const serif = Jost({
   variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
+  weight: ["200", "300", "400"],
 });
 
 export const metadata: Metadata = {

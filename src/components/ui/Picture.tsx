@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArchPlaceholder } from "./ArchPlaceholder";
 
 interface Props {
@@ -17,12 +17,21 @@ interface Props {
 export function Picture({ src, alt, seed, className = "", priority, quiet, ratio }: Props) {
   const [ok, setOk] = useState(true);
   const [loaded, setLoaded] = useState(false);
+  const img = useRef<HTMLImageElement>(null);
+  // The server-rendered image can finish loading before hydration, so onLoad never fires: check on mount.
+  useEffect(() => {
+    const el = img.current;
+    if (!el?.complete) return;
+    if (el.naturalWidth > 0) setLoaded(true);
+    else setOk(false);
+  }, []);
   return (
     <div className={`img-zoom relative overflow-hidden bg-paper ${className}`} style={ratio ? { aspectRatio: ratio } : undefined}>
       {!(ok && loaded) && <ArchPlaceholder seed={seed} label={`${alt} (placeholder image)`} />}
       {ok && (
         // eslint-disable-next-line @next/next/no-img-element
         <img
+          ref={img}
           src={src}
           alt={alt}
           loading={priority ? "eager" : "lazy"}
@@ -32,7 +41,7 @@ export function Picture({ src, alt, seed, className = "", priority, quiet, ratio
         />
       )}
       {!(ok && loaded) && !quiet && (
-        <span className="absolute bottom-2 left-3 text-[10px] uppercase tracking-[0.14em] text-ink/55">
+        <span className="absolute bottom-2 left-3 text-[10px] uppercase tracking-[0.14em] text-black/55">
           Placeholder · {src.replace("/images/", "")}
         </span>
       )}

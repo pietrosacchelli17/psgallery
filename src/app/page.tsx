@@ -2,34 +2,40 @@ import Link from "next/link";
 import { ButtonLink, Container, DemoBadge, SectionHeading } from "@/components/ui/bits";
 import { Picture } from "@/components/ui/Picture";
 import { Reveal } from "@/components/ui/Reveal";
-import { HeroSlides } from "@/components/gallery/HeroSlides";
-import { getAllSeries, getFeaturedPhotos, getFeaturedSeries, getPhotos, getSeries } from "@/lib/content";
+import { FullViewer } from "@/components/gallery/FullViewer";
+import { getAllSeries, getFeaturedSeries, getPhotos, getSeries } from "@/lib/content";
 
 export default function Home() {
-  const hero = getFeaturedPhotos(5).map((p) => ({
-    id: p.id,
-    image: p.image,
-    label: p.alt,
-    caption: `${getSeries(p.series)?.city} · ${p.title}`,
-  }));
+  const slides = getPhotos().map((p) => {
+    const s = getSeries(p.series);
+    return {
+      id: p.id,
+      image: p.image,
+      alt: p.alt,
+      title: p.title,
+      meta: [s?.city, p.architect].filter(Boolean).join(" · "),
+      href: `/photo/${p.id}`,
+    };
+  });
   const featured = getFeaturedSeries();
   const [lead, ...rest] = featured;
 
   return (
     <>
-      <section className="on-ink relative isolate flex min-h-[calc(100svh-4rem)] items-end overflow-hidden bg-ink text-cream">
-        <HeroSlides slides={hero} />
-        <Container className="relative z-10 w-full pb-24 pt-32 sm:pb-28">
-          <p className="eyebrow mb-5 text-cream/75">Photography archive</p>
-          <h1 className="display max-w-[14ch] text-[clamp(3rem,9vw,8rem)]">
-            Architecture through <em className="text-stone">observation.</em>
+      <FullViewer slides={slides} />
+
+      <section className="py-20 sm:py-28">
+        <Container>
+          <p className="eyebrow mb-5">Photography archive</p>
+          <h1 className="display max-w-[14ch] text-[clamp(2.6rem,7vw,6rem)]">
+            Architecture through <em className="text-stone-deep">observation.</em>
           </h1>
-          <p className="mt-6 max-w-[52ch] text-base leading-relaxed text-cream/85 sm:text-lg">
+          <p className="mt-6 max-w-[52ch] text-base leading-relaxed text-mute sm:text-lg">
             An independent architectural photography and visual archive by Pietro Sacchelli: composition, geometry, light, texture and spatial relationships.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href="/archive" variant="light">Browse the archive</ButtonLink>
-            <ButtonLink href="/licensing" variant="light">Licensing</ButtonLink>
+            <ButtonLink href="/archive">Browse the archive</ButtonLink>
+            <ButtonLink href="/licensing" variant="outline">Licensing</ButtonLink>
           </div>
         </Container>
       </section>

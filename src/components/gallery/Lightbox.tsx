@@ -10,7 +10,7 @@ function Frame({ photo }: { photo: Photo }) {
   const ratio = RATIO_NUM[photo.orientation];
   return (
     <div
-      className="relative overflow-hidden bg-ink/40"
+      className="relative overflow-hidden bg-black/40"
       style={{ aspectRatio: RATIO[photo.orientation], width: `min(100%, calc(70vh * ${ratio}))` }}
     >
       {state !== "ok" && <ArchPlaceholder seed={photo.id} label={photo.alt} />}
@@ -25,7 +25,7 @@ function Frame({ photo }: { photo: Photo }) {
         />
       )}
       {state !== "ok" && (
-        <span className="absolute bottom-2 left-3 text-[10px] uppercase tracking-[0.14em] text-ink/60">Placeholder image</span>
+        <span className="absolute bottom-2 left-3 text-[10px] uppercase tracking-[0.14em] text-black/60">Placeholder image</span>
       )}
     </div>
   );
@@ -81,7 +81,7 @@ export function Lightbox({ photos, index, onIndex, onClose, seriesTitle }: Props
     [photos[(index + 1) % n], photos[(index - 1 + n) % n]].forEach((p) => { const i = new Image(); i.src = p.image; });
   }, [index, n, photos]);
 
-  const btn = "grid h-11 w-11 place-items-center border border-cream/30 text-cream transition-colors hover:bg-cream hover:text-ink";
+  const btn = "grid h-11 w-11 place-items-center border border-white/30 text-white transition-colors hover:bg-white hover:text-black";
 
   return (
     <div
@@ -90,7 +90,7 @@ export function Lightbox({ photos, index, onIndex, onClose, seriesTitle }: Props
       aria-modal="true"
       aria-label={`${photo.title}, image ${index + 1} of ${n}`}
       tabIndex={-1}
-      className="on-ink fixed inset-0 z-[90] flex flex-col bg-ink/95 text-cream outline-none"
+      className="on-ink fixed inset-0 z-[90] flex flex-col bg-black/95 text-white outline-none"
       onTouchStart={(e) => { touchX.current = e.touches[0].clientX; }}
       onTouchEnd={(e) => {
         if (touchX.current == null) return;
@@ -100,7 +100,7 @@ export function Lightbox({ photos, index, onIndex, onClose, seriesTitle }: Props
       }}
     >
       <div className="flex items-center justify-between px-4 py-3 sm:px-8">
-        <p className="text-xs tracking-[0.14em] text-cream/70" aria-live="polite">{index + 1} / {n}</p>
+        <p className="text-xs tracking-[0.14em] text-white/70" aria-live="polite">{index + 1} / {n}</p>
         <button type="button" onClick={onClose} className={btn} aria-label="Close (Esc)">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden><path d="M5 5l14 14M19 5L5 19" /></svg>
         </button>
@@ -121,9 +121,9 @@ export function Lightbox({ photos, index, onIndex, onClose, seriesTitle }: Props
       <div className="flex flex-wrap items-end justify-between gap-3 px-4 py-4 sm:px-8">
         <div>
           <p className="font-display text-2xl font-light">{photo.title}</p>
-          <p className="text-xs text-cream/65">
+          <p className="text-xs text-white/65">
             {seriesTitle?.(photo.series)} · {photo.subject}{photo.year ? ` · ${photo.year}` : ""}
-            {photo.demo && <span className="ml-2 border border-cream/40 px-1.5 text-[9px] uppercase tracking-[0.14em]">Demo</span>}
+            {photo.demo && <span className="ml-2 border border-white/40 px-1.5 text-[9px] uppercase tracking-[0.14em]">Demo</span>}
           </p>
         </div>
         <Link href={`/photo/${photo.id}`} onClick={onClose} className="link-u text-sm">Image details →</Link>

@@ -23,9 +23,9 @@ export function PhotoGrid({ photos, titles }: { photos: Photo[]; titles: Record<
               className="group relative block w-full text-left"
             >
               <Picture src={p.image} alt={p.alt} seed={p.id} quiet ratio={RATIO[p.orientation]} className="w-full" />
-              <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 bg-gradient-to-t from-ink/70 to-transparent p-3 text-cream opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-visible:opacity-100">
+              <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 bg-gradient-to-t from-black/70 to-transparent p-3 text-white opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-visible:opacity-100">
                 <span className="text-sm leading-tight">{p.title}</span>
-                <span className="shrink-0 text-[10px] uppercase tracking-[0.14em] text-cream/80">{p.year}</span>
+                <span className="shrink-0 text-[10px] uppercase tracking-[0.14em] text-white/80">{p.year}</span>
               </span>
             </button>
           </li>

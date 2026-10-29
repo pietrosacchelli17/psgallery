@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-cream: #f6f5f1;
+  --color-paper: #ece9e2;
+  --color-line: #d8d5ce;
+  --color-ink: #181818;
+  --color-mute: #62615c;
+  --color-stone: #c4ad8e;
+  --color-stone-deep: #7a6446;
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
+
+:root {
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 350;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+::selection {
+  background: var(--color-stone);
+  color: var(--color-ink);
+}
+:focus-visible {
+  outline: 2px solid var(--color-stone-deep);
+  outline-offset: 3px;
+}
+.on-ink :focus-visible {
+  outline-color: var(--color-stone);
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-mute);
+}
+.display {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+}
+.h1 { font-size: clamp(2.6rem, 6vw, 5.2rem); }
+.h2 { font-size: clamp(2rem, 4vw, 3.4rem); }
+.h3 { font-size: clamp(1.45rem, 2.2vw, 1.9rem); line-height: 1.1; }
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+.img-zoom img, .img-zoom svg { transition: transform 1.2s var(--ease); }
+.group:hover .img-zoom img, .group:hover .img-zoom svg { transform: scale(1.035); }
+
+/* Link underline */
+.link-u {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size 0.4s var(--ease);
+}
+.link-u:hover, .link-u:focus-visible { background-size: 100% 1px; }
+
+
+/* Hero slideshow crossfade */
+.slide { opacity: 0; transition: opacity 1.6s var(--ease); }
+.slide.on { opacity: 1; }
+@keyframes drift { from { transform: scale(1.04); } to { transform: scale(1.14) translate(-1%, -1%); } }
+.slide.on > * { animation: drift 14s ease-out forwards; }
+@media (prefers-reduced-motion: reduce) {
+  .slide { transition: none; }
+  .slide.on > * { animation: none; }
+}
+body.lock { overflow: hidden; }

@@ -11,7 +11,7 @@ npm run build && npm run lint && npm run typecheck
 ## Pages
 `/` immersive hero + featured series · `/archive` browse with city / subject / year filters (URL-driven, shareable) ·
 `/series` and `/series/[slug]` · `/photo/[id]` image detail (← → move through the series, F opens full screen) ·
-`/about` · `/licensing` (mock enquiry form, `?photo=` prefill) · `/contact` (mock form).
+`/about` · `/contact` (mock form).
 
 Lightbox: click any photograph; ← / → / Home / End to navigate, Esc to close, swipe on touch, focus is trapped and restored.
 

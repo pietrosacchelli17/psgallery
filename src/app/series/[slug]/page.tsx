@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ButtonLink, Container, DemoBadge } from "@/components/ui/bits";
+import { Container, DemoBadge } from "@/components/ui/bits";
 import { Picture } from "@/components/ui/Picture";
 import { PhotoGrid } from "@/components/gallery/PhotoGrid";
 import { getAllSeries, getPhotosBySeries, getSeries, getSeriesTitles } from "@/lib/content";
@@ -60,8 +60,7 @@ export default async function SeriesPage({ params }: PageProps<"/series/[slug]">
         <h2 className="eyebrow mb-6">Photographs in this series</h2>
         <PhotoGrid photos={photos} titles={getSeriesTitles()} />
       </Container>
-      <Container className="mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-8">
-        <ButtonLink href={`/licensing?photo=${encodeURIComponent(s.title)}`} variant="outline">License from this series</ButtonLink>
+      <Container className="mt-16 flex flex-wrap items-center justify-end gap-4 border-t border-line pt-8">
         <Link href={`/series/${next.slug}`} className="link-u text-sm">Next series: {next.title} →</Link>
       </Container>
     </article>

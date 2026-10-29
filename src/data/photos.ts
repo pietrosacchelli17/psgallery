@@ -16,7 +16,6 @@ export const photos: Photo[] = [
     architect: "Renzo Piano Building Workshop",
     orientation: "portrait",
     image: "/images/series/santander/01.jpg",
-    licensable: true,
     demo: false,
   },
   {
@@ -30,7 +29,6 @@ export const photos: Photo[] = [
     architect: "Hannes Peer for Margraf",
     orientation: "portrait",
     image: "/images/series/milan/01.jpg",
-    licensable: true,
     demo: false,
   },
   {
@@ -41,7 +39,6 @@ export const photos: Photo[] = [
     subject: "Light & shadow",
     orientation: "portrait",
     image: "/images/series/helsinki/01.jpg",
-    licensable: true,
     demo: false,
   },
   {
@@ -55,7 +52,6 @@ export const photos: Photo[] = [
     architect: "Alvar Aalto",
     orientation: "portrait",
     image: "/images/series/helsinki/02.jpg",
-    licensable: true,
     demo: false,
   },
 ];

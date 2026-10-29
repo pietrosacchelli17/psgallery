@@ -20,7 +20,7 @@ export default function Contact() {
           </dl>
           <div className="mt-6"><ButtonLink href={SITE.instagram} variant="outline">Open Instagram</ButtonLink></div>
         </div>
-        <div className="lg:col-span-6 lg:col-start-7"><EnquiryForm kind="contact" /></div>
+        <div className="lg:col-span-6 lg:col-start-7"><EnquiryForm /></div>
       </div>
     </Container>
   );

@@ -38,7 +38,7 @@ export function FullViewer({ slides }: { slides: Slide[] }) {
     <section
       aria-roledescription="carousel"
       aria-label="Selected photographs"
-      className="on-ink relative isolate h-[calc(100svh-4rem)] min-h-[420px] overflow-hidden bg-black text-white"
+      className="on-ink relative isolate h-[calc(100svh-5.75rem)] min-h-[420px] overflow-hidden bg-black text-white"
       onTouchStart={(e) => { touchX.current = e.touches[0].clientX; }}
       onTouchEnd={(e) => {
         if (touchX.current === null) return;

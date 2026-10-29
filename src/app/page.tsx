@@ -35,7 +35,6 @@ export default function Home() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href="/archive">Browse the archive</ButtonLink>
-            <ButtonLink href="/licensing" variant="outline">Licensing</ButtonLink>
           </div>
         </Container>
       </section>
@@ -81,19 +80,6 @@ export default function Home() {
             ))}
           </dl>
           {getPhotos().some((p) => p.demo) && <p className="text-xs text-mute md:col-span-12">Counts reflect demo content only.</p>}
-        </Container>
-      </section>
-
-      <section className="py-20 sm:py-28">
-        <Container className="grid gap-8 md:grid-cols-12 md:items-center">
-          <div className="md:col-span-7">
-            <p className="eyebrow mb-3">Licensing</p>
-            <h2 className="display h2 max-w-[18ch]">Images for publication, practice and display</h2>
-            <p className="mt-5 max-w-[52ch] text-mute">Editorial, studio portfolio and exhibition uses are considered individually. Tell us about the project and we will reply with options.</p>
-          </div>
-          <div className="md:col-span-5 md:text-right">
-            <ButtonLink href="/licensing" variant="outline">Make an enquiry</ButtonLink>
-          </div>
         </Container>
       </section>
     </>

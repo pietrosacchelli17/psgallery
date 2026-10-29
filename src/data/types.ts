@@ -44,7 +44,5 @@ export interface Photo {
   orientation: Orientation;
   /** Path under /public; falls back to a generated placeholder when missing. */
   image: string;
-  /** Sale / licence availability, mock. */
-  licensable: boolean;
   demo: boolean;
 }

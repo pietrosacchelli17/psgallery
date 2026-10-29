@@ -17,7 +17,6 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li><Link className="link-u" href="/archive">Browse photographs</Link></li>
               <li><Link className="link-u" href="/series">Series</Link></li>
-              <li><Link className="link-u" href="/licensing">Licensing</Link></li>
             </ul>
           </div>
           <div>

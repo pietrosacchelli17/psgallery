@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ButtonLink, Container, DemoBadge } from "@/components/ui/bits";
+import { Container, DemoBadge } from "@/components/ui/bits";
 import { PhotoViewer } from "@/components/gallery/PhotoViewer";
 import { getAdjacent, getPhoto, getPhotos, getPhotosBySeries, getSeries, getSeriesTitles } from "@/lib/content";
 
@@ -50,9 +50,6 @@ export default async function PhotoPage({ params }: PageProps<"/photo/[id]">) {
             ))}
           </dl>
           {photo.demo && <p className="mt-4 text-sm text-mute">Title, year and subject are illustrative until real photographs are added.</p>}
-          {photo.licensable && (
-            <ButtonLink href={`/licensing?photo=${encodeURIComponent(photo.title + " (" + series.title + ")")}`} className="mt-6">License this image</ButtonLink>
-          )}
           <div className="mt-8 flex justify-between border-t border-line pt-4 text-sm">
             <Link href={`/photo/${prev.id}`} className="link-u" aria-label={`Previous: ${prev.title}`}>← Previous</Link>
             <Link href={`/photo/${next.id}`} className="link-u" aria-label={`Next: ${next.title}`}>Next →</Link>

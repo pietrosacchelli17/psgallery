@@ -35,7 +35,7 @@ export interface ArchiveFilter {
 export function getFilterOptions() {
   const cities = [...new Set(series.map((s) => s.city))].sort();
   const subjects = [...new Set(photos.map((p) => p.subject))].sort() as Subject[];
-  const years = [...new Set(photos.map((p) => String(p.year)))].sort().reverse();
+  const years = [...new Set(photos.flatMap((p) => (p.year ? [String(p.year)] : [])))].sort().reverse();
   return { cities, subjects, years };
 }
 
@@ -51,8 +51,7 @@ export const SITE = {
   tagline: "Architecture through observation.",
   instagram: "https://www.instagram.com/psgallery.jpg",
   instagramHandle: "@psgallery.jpg",
-  /** TODO: real contact address is not in the studio mockup yet. */
-  email: null as string | null,
+  email: "pietrosacchelli17@gmail.com" as string | null,
 };
 
 /** slug -> title map, for client components that only receive photos. */

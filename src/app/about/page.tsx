@@ -11,7 +11,7 @@ export default function About() {
       <p className="eyebrow mb-3">About the archive</p>
       <h1 className="display h1 max-w-[14ch]">A growing <em className="text-stone-deep">collection.</em></h1>
       <div className="mt-12 grid gap-10 md:grid-cols-12">
-        <Picture src="/images/about.jpg" alt="Portrait of Pietro Sacchelli (placeholder)" seed="about-pietro" ratio="4 / 5" className="md:col-span-4" />
+        <Picture src="/images/about.jpg" alt="Portrait of Pietro Sacchelli" seed="about-pietro" ratio="4 / 5" className="md:col-span-4" />
         <div className="md:col-span-7 md:col-start-6">
           <p className="max-w-[56ch] text-xl leading-snug sm:text-2xl">Founded by Pietro Sacchelli, an Italian architecture graduate based in London.</p>
           <p className="mt-6 max-w-[62ch] text-mute">
@@ -24,7 +24,6 @@ export default function About() {
             <ButtonLink href="/archive">Browse the archive</ButtonLink>
             <ButtonLink href={SITE.instagram} variant="outline">Instagram {SITE.instagramHandle}</ButtonLink>
           </div>
-          <p className="mt-10 border-t border-line pt-4 text-xs text-mute">Portrait is a placeholder: add <code>public/images/about.jpg</code>. Biography text is taken from the existing studio site; extend it as wished.</p>
         </div>
       </div>
     </Container>

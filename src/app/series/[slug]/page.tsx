@@ -25,7 +25,7 @@ export default async function SeriesPage({ params }: PageProps<"/series/[slug]">
   const facts: [string, string][] = [
     ["Location", `${s.city}, ${s.country}`],
     ["Period", s.era],
-    ["Materials", s.materials],
+    ...(s.materials ? ([["Materials", s.materials]] as [string, string][]) : []),
     ["Photographs", String(photos.length)],
   ];
 

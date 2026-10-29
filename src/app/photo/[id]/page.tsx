@@ -22,9 +22,11 @@ export default async function PhotoPage({ params }: PageProps<"/photo/[id]">) {
   const facts: [string, string][] = [
     ["Series", series.title],
     ["Location", `${series.city}, ${series.country}`],
+    ...(photo.building ? ([["Building", photo.building]] as [string, string][]) : []),
+    ...(photo.architect ? ([["Architect", photo.architect]] as [string, string][]) : []),
     ["Subject", photo.subject],
-    ["Year", String(photo.year)],
-    ["Materials", series.materials],
+    ...(photo.year ? ([["Year", String(photo.year)]] as [string, string][]) : []),
+    ...(series.materials ? ([["Materials", series.materials]] as [string, string][]) : []),
   ];
 
   return (
@@ -47,7 +49,7 @@ export default async function PhotoPage({ params }: PageProps<"/photo/[id]">) {
               </div>
             ))}
           </dl>
-          <p className="mt-4 text-sm text-mute">Title, year and subject are illustrative until real photographs are added.</p>
+          {photo.demo && <p className="mt-4 text-sm text-mute">Title, year and subject are illustrative until real photographs are added.</p>}
           {photo.licensable && (
             <ButtonLink href={`/licensing?photo=${encodeURIComponent(photo.title + " (" + series.title + ")")}`} className="mt-6">License this image</ButtonLink>
           )}

@@ -74,7 +74,7 @@ export default function Home() {
               </div>
             ))}
           </dl>
-          <p className="text-xs text-mute md:col-span-12">Counts reflect demo content only.</p>
+          {getPhotos().some((p) => p.demo) && <p className="text-xs text-mute md:col-span-12">Counts reflect demo content only.</p>}
         </Container>
       </section>
 

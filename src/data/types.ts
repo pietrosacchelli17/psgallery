@@ -18,8 +18,8 @@ export interface Series {
   city: string;
   country: string;
   era: Era;
-  /** Dominant materials, from the original studio mockup. */
-  materials: string;
+  /** Dominant materials; omit when not known. */
+  materials?: string;
   summary: string;
   description: string[];
   /** Series cover image path under /public. */
@@ -36,7 +36,11 @@ export interface Photo {
   /** Alt text. Describes what the real photograph should show; edit with the real image. */
   alt: string;
   subject: Subject;
-  year: number;
+  /** Year photographed; omit when not known. */
+  year?: number;
+  /** Building or installation name, when the subject is one. */
+  building?: string;
+  architect?: string;
   orientation: Orientation;
   /** Path under /public; falls back to a generated placeholder when missing. */
   image: string;

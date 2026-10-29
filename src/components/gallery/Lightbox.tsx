@@ -122,7 +122,7 @@ export function Lightbox({ photos, index, onIndex, onClose, seriesTitle }: Props
         <div>
           <p className="font-display text-2xl font-light">{photo.title}</p>
           <p className="text-xs text-cream/65">
-            {seriesTitle?.(photo.series)} · {photo.subject} · {photo.year}
+            {seriesTitle?.(photo.series)} · {photo.subject}{photo.year ? ` · ${photo.year}` : ""}
             {photo.demo && <span className="ml-2 border border-cream/40 px-1.5 text-[9px] uppercase tracking-[0.14em]">Demo</span>}
           </p>
         </div>

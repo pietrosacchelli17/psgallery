@@ -23,7 +23,7 @@ export default async function ArchivePage({ searchParams }: PageProps<"/archive"
       <h1 className="display h1 max-w-[14ch]">Browse the <em className="text-stone-deep">archive</em></h1>
       <div className="mt-10"><ArchiveFilters filter={filter} options={getFilterOptions()} /></div>
       <div className="mb-6 mt-8 flex items-center justify-between border-t border-line pt-4 text-sm text-mute" aria-live="polite">
-        <p>{photos.length} photograph{photos.length === 1 ? "" : "s"} · demo content</p>
+        <p>{photos.length} photograph{photos.length === 1 ? "" : "s"}{photos.some((p) => p.demo) && " · demo content"}</p>
         {active && <Link href="/archive" className="link-u text-ink">Clear filters</Link>}
       </div>
       {photos.length ? (

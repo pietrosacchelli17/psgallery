@@ -95,3 +95,10 @@ em { font-style: normal; }
   .slide.on > * { animation: none; }
 }
 body.lock { overflow: hidden; }
+
+/* Dot cursor on devices with a mouse; touch screens keep normal behaviour */
+.dot{position:fixed;left:0;top:0;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:2147483000;opacity:0;transition:width .18s,height .18s,margin .18s,opacity .2s}
+.dot.on{opacity:1}
+.dot.big{width:22px;height:22px;margin:-11px 0 0 -11px}
+@media (hover:hover) and (pointer:fine){html.has-dot,html.has-dot *{cursor:none!important}}
+@media (hover:none),(pointer:coarse){.dot{display:none}}

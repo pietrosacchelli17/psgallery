@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // PS Gallery is served inside the Petrus Atelier site at /psgallery.
+  basePath: "/psgallery",
+  async redirects() {
+    return [{ source: "/", destination: "/psgallery", basePath: false, permanent: false }];
+  },
   turbopack: {
     rules: {
       "*.css": {

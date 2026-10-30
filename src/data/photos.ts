@@ -15,7 +15,7 @@ export const photos: Photo[] = [
     building: "Centro Botín",
     architect: "Renzo Piano Building Workshop",
     orientation: "portrait",
-    image: "/images/series/santander/01.jpg",
+    image: "/psgallery/images/series/santander/01.jpg",
     demo: false,
   },
   {
@@ -28,7 +28,7 @@ export const photos: Photo[] = [
     building: "La Casa di Marmo",
     architect: "Hannes Peer for Margraf",
     orientation: "portrait",
-    image: "/images/series/milan/01.jpg",
+    image: "/psgallery/images/series/milan/01.jpg",
     demo: false,
   },
   {
@@ -38,7 +38,7 @@ export const photos: Photo[] = [
     alt: "Pine trees on the Helsinki shoreline in low sun, with water and distant buildings behind",
     subject: "Light & shadow",
     orientation: "portrait",
-    image: "/images/series/helsinki/01.jpg",
+    image: "/psgallery/images/series/helsinki/01.jpg",
     demo: false,
   },
   {
@@ -51,7 +51,7 @@ export const photos: Photo[] = [
     building: "Finlandia Hall",
     architect: "Alvar Aalto",
     orientation: "portrait",
-    image: "/images/series/helsinki/02.jpg",
+    image: "/psgallery/images/series/helsinki/02.jpg",
     demo: false,
   },
 ];

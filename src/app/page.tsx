@@ -27,7 +27,7 @@ export default function Home() {
       <section className="py-20 sm:py-28">
         <Container>
           <p className="eyebrow mb-5">Photography archive</p>
-          <h1 className="display max-w-[14ch] text-[clamp(2.6rem,7vw,6rem)]">
+          <h1 className="display max-w-[14ch] text-[clamp(2.1rem,5vw,4.2rem)]">
             Architecture through <em className="text-stone-deep">observation.</em>
           </h1>
           <p className="mt-6 max-w-[52ch] text-base leading-relaxed text-mute sm:text-lg">

@@ -11,16 +11,27 @@ interface Slide {
   href: string;
 }
 
+/** How many photographs fit across the screen: 1 on phones, 2 on laptops, 3 on wide screens. */
+const perView = () =>
+  window.matchMedia("(min-width: 1536px)").matches ? 3 : window.matchMedia("(min-width: 768px)").matches ? 2 : 1;
+
 /**
- * Full-screen, one-image-at-a-time viewer. Click either half, use the arrow keys or swipe to move.
- * Caption bottom-left, counter bottom-centre. Portrait photos are cropped to fill on phones and
- * shown whole on wider screens.
+ * Full-height photographs side by side, like a filmstrip. Click either half, use the arrow keys or
+ * swipe: the whole strip glides across. The caption sits in its own thin strip underneath, so
+ * nothing overlaps the photographs.
  */
 export function FullViewer({ slides }: { slides: Slide[] }) {
+  const n = slides.length;
   const [i, setI] = useState(0);
   const touchX = useRef<number | null>(null);
-  const n = slides.length;
-  const go = useCallback((d: number) => setI((x) => (x + d + n) % n), [n]);
+
+  const go = useCallback(
+    (d: number) => {
+      const max = Math.max(0, n - perView());
+      setI((x) => (d > 0 ? (x >= max ? 0 : x + 1) : x <= 0 ? max : x - 1));
+    },
+    [n],
+  );
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -32,13 +43,14 @@ export function FullViewer({ slides }: { slides: Slide[] }) {
   }, [go]);
 
   if (n === 0) return null;
-  const s = slides[i];
+  const s = slides[Math.min(i, n - 1)];
 
   return (
     <section
       aria-roledescription="carousel"
       aria-label="Selected photographs"
-      className="on-ink relative isolate h-[calc(100svh-5.75rem)] min-h-[420px] overflow-hidden bg-black text-white"
+      className="on-ink relative isolate h-[calc(100svh-5.75rem)] min-h-[460px] overflow-hidden bg-black text-white [--pv:1] md:[--pv:2] 2xl:[--pv:3]"
+      style={{ ["--i" as string]: i }}
       onTouchStart={(e) => { touchX.current = e.touches[0].clientX; }}
       onTouchEnd={(e) => {
         if (touchX.current === null) return;
@@ -47,29 +59,32 @@ export function FullViewer({ slides }: { slides: Slide[] }) {
         touchX.current = null;
       }}
     >
-      {slides.map((sl, k) => (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          key={sl.id}
-          src={sl.image}
-          alt={k === i ? sl.alt : ""}
-          aria-hidden={k !== i}
-          loading={k === 0 ? "eager" : "lazy"}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 md:object-contain ${k === i ? "opacity-100" : "opacity-0"}`}
-        />
-      ))}
+      <div className="absolute inset-x-0 top-0 bottom-[56px] overflow-hidden">
+        {/* The strip: every photograph, full height, glides sideways */}
+        <div
+          className="flex h-full transition-transform duration-[1100ms] ease-[cubic-bezier(.2,.7,.2,1)] motion-reduce:transition-none"
+          style={{ transform: "translateX(calc(var(--i) * -100% / var(--pv)))" }}
+        >
+          {slides.map((sl, k) => (
+            <div key={sl.id} className="h-full shrink-0 basis-[calc(100%/var(--pv))] px-[1px]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={sl.image} alt={sl.alt} loading={k < 3 ? "eager" : "lazy"} className="h-full w-full object-cover" draggable={false} />
+            </div>
+          ))}
+        </div>
 
-      {/* Click zones: left half back, right half forward */}
-      <button type="button" onClick={() => go(-1)} aria-label="Previous photograph" className="absolute inset-y-0 left-0 z-10 w-1/2 cursor-w-resize" />
-      <button type="button" onClick={() => go(1)} aria-label="Next photograph" className="absolute inset-y-0 right-0 z-10 w-1/2 cursor-e-resize" />
+        {/* Click zones: left half back, right half forward */}
+        <button type="button" onClick={() => go(-1)} aria-label="Previous photographs" className="absolute inset-y-0 left-0 z-10 w-1/2 cursor-w-resize" />
+        <button type="button" onClick={() => go(1)} aria-label="Next photographs" className="absolute inset-y-0 right-0 z-10 w-1/2 cursor-e-resize" />
+      </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/70 to-transparent px-5 pb-5 pt-16 sm:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-[1500px] grid-cols-[1fr_auto_1fr] items-end gap-4 text-xs">
-          <Link href={s.href} className="pointer-events-auto justify-self-start link-u">
-            <span className="block">{s.title}</span>
-            <span className="block text-white/70">{s.meta}</span>
+      {/* Caption strip: its own row, never over a photograph */}
+      <div className="absolute inset-x-0 bottom-0 z-20 h-[56px] border-t border-white/15 bg-black px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto grid h-full max-w-[1500px] grid-cols-[1fr_auto_1fr] items-center gap-4 text-xs">
+          <Link href={s.href} className="link-u justify-self-start truncate">
+            {s.title}<span className="text-white/60"> · {s.meta}</span>
           </Link>
-          <p aria-live="polite" className="tabular-nums text-white/80">({i + 1}/{n})</p>
+          <p aria-live="polite" className="tabular-nums text-white/80">({Math.min(i + 1, n)}/{n})</p>
           <span />
         </div>
       </div>

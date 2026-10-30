@@ -18,13 +18,15 @@
 
 html {
   scroll-behavior: smooth;
+  /* Small, quiet type like the CAKE site: every rem-based size scales with this. */
+  font-size: 12.5px;
 }
 body {
   background: var(--color-cream);
   color: var(--color-ink);
   font-family: var(--font-sans);
   font-weight: 300;
-  font-size: 14px;
+  font-size: 1rem;
   letter-spacing: 0.04em;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;

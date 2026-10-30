@@ -22,7 +22,7 @@ export function Footer() {
           <div>
             <p className="eyebrow mb-4 text-white/60">Photographer</p>
             <ul className="space-y-2.5 text-sm">
-              <li><Link className="link-u" href="/about">About</Link></li>
+              <li><Link className="link-u" href="/#about">About</Link></li>
               <li><Link className="link-u" href="/contact">Contact</Link></li>
               <li><a className="link-u" href={SITE.instagram} rel="noopener noreferrer" target="_blank">Instagram {SITE.instagramHandle}</a></li>
             </ul>

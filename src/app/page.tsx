@@ -3,7 +3,7 @@ import { ButtonLink, Container, DemoBadge, SectionHeading } from "@/components/u
 import { Picture } from "@/components/ui/Picture";
 import { Reveal } from "@/components/ui/Reveal";
 import { FullViewer } from "@/components/gallery/FullViewer";
-import { getAllSeries, getFeaturedSeries, getPhotos, getSeries } from "@/lib/content";
+import { SITE, getAllSeries, getFeaturedSeries, getPhotos, getSeries } from "@/lib/content";
 
 export default function Home() {
   const slides = getPhotos().map((p) => {
@@ -58,14 +58,20 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="border-y border-line bg-paper py-20 sm:py-24">
+      <section id="about" className="scroll-mt-24 border-y border-line bg-paper py-20 sm:py-24">
         <Container className="grid items-end gap-10 md:grid-cols-12">
           <div className="md:col-span-7">
-            <p className="eyebrow mb-3">The archive</p>
+            <p className="eyebrow mb-3">About the archive</p>
             <h2 className="display h2 max-w-[16ch]">A growing <em className="text-stone-deep">collection.</em></h2>
-            <p className="mt-6 max-w-[56ch] text-mute">
-              Modernist and contemporary architecture, historic buildings, architectural details and natural materials, from different cities and countries. Filter by city, subject or year.
+            <p className="mt-6 max-w-[56ch] text-lg leading-snug">Founded by Pietro Sacchelli, an Italian architecture graduate based in London.</p>
+            <p className="mt-4 max-w-[56ch] text-mute">
+              The archive includes modernist and contemporary architecture, historic buildings, architectural details, natural materials and, occasionally, landscape and travel photography. It is a personal collection of architectural observations from different cities and countries.
             </p>
+            <p className="mt-3 max-w-[56ch] text-mute">Each photograph looks for composition, geometry, light, texture and spatial relationships.</p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <ButtonLink href="/archive">Browse the archive</ButtonLink>
+              <ButtonLink href={SITE.instagram} variant="outline">Instagram {SITE.instagramHandle}</ButtonLink>
+            </div>
           </div>
           <dl className="grid grid-cols-3 gap-4 md:col-span-5">
             {[

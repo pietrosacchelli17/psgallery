@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/", destination: "/psgallery", basePath: false, permanent: false },
-      { source: "/about", destination: "/#about", permanent: false },
+      { source: "/about", destination: "/#about", basePath: false, permanent: false },
     ];
   },
   turbopack: {

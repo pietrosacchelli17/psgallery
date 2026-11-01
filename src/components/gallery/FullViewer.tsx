@@ -14,7 +14,7 @@ interface Slide {
 }
 
 /** Two resting places for a photograph on the pile; they alternate so each print overlaps the last on purpose. */
-const SPOTS: [number, number][] = [[0, 8], [32, 0]];
+const SPOTS: [number, number][] = [[0, 8], [24, 0]];
 const KEEP = 2;
 
 /**
@@ -64,7 +64,7 @@ export function FullViewer({ slides }: { slides: Slide[] }) {
     >
       <div
         className="relative mx-auto cursor-pointer"
-        style={{ width: "min(100%, calc((100svh - 14rem) * 0.98), 680px)", aspectRatio: "1 / 1.02" }}
+        style={{ width: "min(100%, calc((100svh - 11rem) * 0.98), 820px)", aspectRatio: "1 / 1.02" }}
         onClick={() => go(1)}
       >
         {slides.map((sl, k) => {
@@ -72,7 +72,7 @@ export function FullViewer({ slides }: { slides: Slide[] }) {
           const shown = d < KEEP;
           const [left, top] = SPOTS[k % SPOTS.length];
           // Wide photographs take more of the width, tall ones less, so the pile keeps one visual weight.
-          const w = sl.ratio >= 1 ? 72 : 66;
+          const w = sl.ratio >= 1 ? 76 : 70;
           return (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -98,7 +98,7 @@ export function FullViewer({ slides }: { slides: Slide[] }) {
         })}
       </div>
 
-      <figcaption aria-live="polite" className="mx-auto mt-6 flex items-baseline justify-between gap-6 text-[0.85rem]" style={{ width: "min(100%, calc((100svh - 14rem) * 0.98), 680px)" }}>
+      <figcaption aria-live="polite" className="mx-auto mt-6 flex items-baseline justify-between gap-6 text-[0.85rem]" style={{ width: "min(100%, calc((100svh - 11rem) * 0.98), 820px)" }}>
         <Link href={s.href} className="link-u truncate text-ink">
           {s.title}<span className="text-mute"> · {s.meta}</span>
         </Link>

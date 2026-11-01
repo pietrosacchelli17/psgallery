@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <>
       <section>
-        <Container className="grid items-center gap-12 py-12 lg:min-h-[calc(100svh-6.5rem)] lg:grid-cols-12 lg:gap-8 lg:py-8">
+        <Container className="grid items-center gap-8 py-8 lg:min-h-[calc(100svh-6.5rem)] lg:grid-cols-12 lg:gap-8 lg:py-8">
           <div className="lg:col-span-5">
             <p className="eyebrow mb-6">Photography archive</p>
             <h1 className="display max-w-[11ch] text-[clamp(2.4rem,5.2vw,4.6rem)]">Architecture through observation.</h1>

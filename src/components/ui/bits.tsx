@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export function Container({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <div className={`mx-auto w-full max-w-[1500px] px-5 sm:px-8 lg:px-12 ${className}`}>{children}</div>;
+  return <div className={`mx-auto w-full max-w-[1280px] px-[clamp(1.25rem,4vw,3rem)] ${className}`}>{children}</div>;
 }
 
 export function SectionHeading({

@@ -23,6 +23,7 @@ export function Footer() {
             <p className="eyebrow mb-4 text-mute">Photographer</p>
             <ul className="space-y-2.5 text-[0.95rem]">
               <li><Link className="link-u" href="/contact">Contact</Link></li>
+              <li><a className="link-u" href="https://petrus-atelier-site.vercel.app">← Petrus Atelier</a></li>
               <li><a className="link-u" href={SITE.instagram} rel="noopener noreferrer" target="_blank">Instagram {SITE.instagramHandle}</a></li>
             </ul>
           </div>

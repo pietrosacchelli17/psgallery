@@ -24,13 +24,15 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 bg-cream/95 backdrop-blur">
-      <a
-        href="https://petrus-atelier-site.vercel.app"
-        className="block px-5 pt-2 text-[0.72rem] uppercase tracking-[0.14em] text-mute transition-colors hover:text-ink sm:px-8 lg:px-12"
-      >
-        ← Petrus Atelier
-      </a>
-      <div className="mx-auto flex h-16 max-w-[1500px] items-center justify-between px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto w-full max-w-[1280px] px-[clamp(1.25rem,4vw,3rem)] pt-1.5">
+        <a
+          href="https://petrus-atelier-site.vercel.app"
+          className="inline-flex items-center gap-2 py-2.5 text-[0.82rem] uppercase tracking-[0.14em] text-ink hover:underline hover:underline-offset-[5px]"
+        >
+          <span aria-hidden>←</span> Petrus Atelier
+        </a>
+      </div>
+      <div className="mx-auto flex h-[4.25rem] max-w-[1280px] items-center justify-between px-[clamp(1.25rem,4vw,3rem)]">
         <span onClick={() => setOpen(false)}><Wordmark /></span>
         <nav aria-label="Primary" className="hidden items-center gap-9 md:flex">
           {NAV.map((n) => (

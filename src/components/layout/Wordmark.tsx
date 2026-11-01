@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export function Wordmark({ className = "text-2xl", light = false }: { className?: string; light?: boolean }) {
+export function Wordmark({ className = "text-[1.3rem]", light = false }: { className?: string; light?: boolean }) {
   return (
     <Link href="/" aria-label="PS Gallery — home" className={`font-display font-normal tracking-[0.04em] ${className}`}>
       <span className={light ? "text-white" : "text-ink"}>PS </span>

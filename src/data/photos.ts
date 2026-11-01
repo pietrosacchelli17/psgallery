@@ -186,4 +186,17 @@ export const photos: Photo[] = [
     image: "/psgallery/images/series/carrara/01.jpg",
     demo: false,
   },
+  {
+    id: "london-07",
+    series: "london",
+    title: "Keeling House",
+    alt: "Keeling House, Bethnal Green, London (1959) by Denys Lasdun: a 16-storey Brutalist residential tower in reinforced concrete, with wings of maisonettes around a central core, seen from below against a blue sky. Grade II* listed in 1993",
+    subject: "Structure",
+    year: 2024,
+    building: "Keeling House, Bethnal Green (1959)",
+    architect: "Denys Lasdun",
+    orientation: "portrait",
+    image: "/psgallery/images/series/london/07.jpg",
+    demo: false,
+  },
 ];

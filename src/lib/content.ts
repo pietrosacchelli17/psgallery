@@ -5,7 +5,16 @@
  */
 import { series } from "@/data/series";
 import { photos } from "@/data/photos";
+import { DIMS } from "@/data/dimensions";
 import type { Photo, Series, Subject } from "@/data/types";
+
+const FALLBACK = { landscape: 1.5, portrait: 0.8, square: 1 } as const;
+/** Width / height of a photograph, from its real pixel size (falls back to its orientation). */
+export const ratioNum = (src: string, orientation: Photo["orientation"] = "portrait") => {
+  const d = DIMS[src];
+  return d ? d[0] / d[1] : FALLBACK[orientation];
+};
+export const photoRatio = (p: Photo) => ratioNum(p.image, p.orientation);
 
 export const getAllSeries = () => series;
 export const getFeaturedSeries = () => series.filter((s) => s.featured);

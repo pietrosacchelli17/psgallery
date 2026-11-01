@@ -31,7 +31,7 @@ export default async function PhotoPage({ params }: PageProps<"/photo/[id]">) {
 
   return (
     <Container className="pt-8">
-      <nav aria-label="Breadcrumb" className="text-xs text-mute">
+      <nav aria-label="Breadcrumb" className="text-[0.85rem] text-mute">
         <Link href="/archive" className="link-u">Archive</Link> / <Link href={`/series/${series.slug}`} className="link-u">{series.title}</Link>
       </nav>
       <div className="mt-6 grid gap-10 lg:grid-cols-12">
@@ -43,14 +43,14 @@ export default async function PhotoPage({ params }: PageProps<"/photo/[id]">) {
           <h1 className="display h2">{photo.title}</h1>
           <dl className="mt-8">
             {facts.map(([k, v]) => (
-              <div key={k} className="flex justify-between gap-6 border-t border-line py-3 text-sm">
+              <div key={k} className="flex justify-between gap-6 py-2.5 text-[0.95rem]">
                 <dt className="text-mute">{k}</dt>
                 <dd className="text-right">{v}</dd>
               </div>
             ))}
           </dl>
           {photo.demo && <p className="mt-4 text-sm text-mute">Title, year and subject are illustrative until real photographs are added.</p>}
-          <div className="mt-8 flex justify-between border-t border-line pt-4 text-sm">
+          <div className="mt-8 flex justify-between pt-4 text-[0.9rem]">
             <Link href={`/photo/${prev.id}`} className="link-u" aria-label={`Previous: ${prev.title}`}>← Previous</Link>
             <Link href={`/photo/${next.id}`} className="link-u" aria-label={`Next: ${next.title}`}>Next →</Link>
           </div>

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Container, DemoBadge } from "@/components/ui/bits";
+import { Container } from "@/components/ui/bits";
 import { Picture } from "@/components/ui/Picture";
 import { PhotoGrid } from "@/components/gallery/PhotoGrid";
-import { getAllSeries, getPhotosBySeries, getSeries, getSeriesTitles } from "@/lib/content";
+import { getAllSeries, getPhotosBySeries, getSeries, getSeriesTitles, ratioNum } from "@/lib/content";
 
 export function generateStaticParams() {
   return getAllSeries().map((s) => ({ slug: s.slug }));
@@ -32,36 +32,36 @@ export default async function SeriesPage({ params }: PageProps<"/series/[slug]">
   return (
     <article>
       <Container className="pt-8">
-        <nav aria-label="Breadcrumb" className="text-xs text-mute">
+        <nav aria-label="Breadcrumb" className="text-[0.85rem] text-mute">
           <Link href="/series" className="link-u">Series</Link> / {s.title}
         </nav>
-        <header className="mt-6 grid gap-8 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-8">
-            <p className="eyebrow mb-3">{s.city}, {s.country} {s.demo && <DemoBadge className="ml-2" />}</p>
+        <div className="mt-12 grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-6 lg:pt-10">
+            <p className="eyebrow mb-4">{s.city}, {s.country}</p>
             <h1 className="display h1">{s.title}</h1>
+            <div className="mt-8">
+              {s.description.map((p, k) => <p key={k} className={`mb-5 max-w-[52ch] ${k === 0 ? "text-[1.05rem] text-ink" : "text-mute"}`}>{p}</p>)}
+            </div>
+            <dl className="mt-10 grid max-w-[28rem] grid-cols-2 gap-x-8 gap-y-6">
+              {facts.map(([k, v]) => (
+                <div key={k}>
+                  <dt className="eyebrow">{k}</dt>
+                  <dd className="mt-1">{v}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
-        </header>
-        <Picture src={s.image} alt={`${s.title}: series cover (placeholder)`} seed={s.slug} priority ratio="21 / 9" className="mt-10 w-full" />
-        <div className="mt-10 grid gap-10 lg:grid-cols-12">
-          <dl className="grid grid-cols-2 gap-x-6 gap-y-5 lg:col-span-4 lg:grid-cols-1">
-            {facts.map(([k, v]) => (
-              <div key={k} className="border-t border-line pt-3">
-                <dt className="eyebrow">{k}</dt>
-                <dd className="mt-1">{v}</dd>
-              </div>
-            ))}
-          </dl>
-          <div className="lg:col-span-7 lg:col-start-6">
-            {s.description.map((p, k) => <p key={k} className={`mb-5 max-w-[62ch] ${k === 0 ? "text-lg" : "text-mute"}`}>{p}</p>)}
+          <div className="lg:col-span-5 lg:col-start-8">
+            <Picture src={s.image} alt={`${s.title}, series cover`} seed={s.slug} quiet priority ratio={String(ratioNum(s.image))} className="w-full" />
           </div>
         </div>
       </Container>
-      <Container className="mt-16">
-        <h2 className="eyebrow mb-6">Photographs in this series</h2>
+      <Container className="mt-24">
+        <h2 className="eyebrow mb-8">Photographs in this series</h2>
         <PhotoGrid photos={photos} titles={getSeriesTitles()} />
       </Container>
-      <Container className="mt-16 flex flex-wrap items-center justify-end gap-4 border-t border-line pt-8">
-        <Link href={`/series/${next.slug}`} className="link-u text-sm">Next series: {next.title} →</Link>
+      <Container className="mb-8 mt-8 flex justify-end">
+        <Link href={`/series/${next.slug}`} className="link-u text-[0.9rem]">Next series: {next.title} →</Link>
       </Container>
     </article>
   );

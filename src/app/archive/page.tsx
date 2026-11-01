@@ -18,18 +18,18 @@ export default async function ArchivePage({ searchParams }: PageProps<"/archive"
   const active = Object.values(filter).some(Boolean);
 
   return (
-    <Container className="pb-8 pt-12 sm:pt-16">
+    <Container className="pb-16 pt-12 sm:pt-20">
       <p className="eyebrow mb-3">Archive</p>
-      <h1 className="display h1 max-w-[14ch]">Browse the <em className="text-stone-deep">archive</em></h1>
-      <div className="mt-10"><ArchiveFilters filter={filter} options={getFilterOptions()} /></div>
-      <div className="mb-6 mt-8 flex items-center justify-between border-t border-line pt-4 text-sm text-mute" aria-live="polite">
+      <h1 className="display h1 max-w-[14ch]">Browse the archive</h1>
+      <div className="mt-12"><ArchiveFilters filter={filter} options={getFilterOptions()} /></div>
+      <div className="mb-10 mt-12 flex items-center justify-between text-[0.9rem] text-mute" aria-live="polite">
         <p>{photos.length} photograph{photos.length === 1 ? "" : "s"}{photos.some((p) => p.demo) && " · demo content"}</p>
         {active && <Link href="/archive" className="link-u text-ink">Clear filters</Link>}
       </div>
       {photos.length ? (
         <PhotoGrid key={JSON.stringify(filter)} photos={photos} titles={getSeriesTitles()} />
       ) : (
-        <div className="border border-line py-20 text-center">
+        <div className="py-24 text-center">
           <p className="font-display text-3xl font-light">Nothing matches those filters.</p>
           <Link href="/archive" className="link-u mt-4 inline-block text-sm">Clear filters</Link>
         </div>

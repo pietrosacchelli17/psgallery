@@ -14,7 +14,7 @@ export function SectionHeading({
         <h2 className="display h2 max-w-[18ch]">{title}</h2>
       </div>
       {href && (
-        <Link href={href} className="link-u pb-1 text-sm tracking-wide">
+        <Link href={href} className="link-u pb-1 text-[0.9rem] tracking-wide">
           {linkLabel ?? "View all"} →
         </Link>
       )}
@@ -34,18 +34,14 @@ export function DemoBadge({ className = "" }: { className?: string }) {
 }
 
 export function ButtonLink({
-  href, children, variant = "solid", className = "",
+  href, children, className = "",
 }: { href: string; children: React.ReactNode; variant?: "solid" | "outline" | "light"; className?: string }) {
-  const styles = {
-    solid: "bg-ink text-cream hover:bg-stone-deep",
-    outline: "border border-ink text-ink hover:bg-ink hover:text-cream",
-    light: "border border-cream/60 text-cream hover:bg-cream hover:text-ink",
-  }[variant];
-  const cls = `inline-flex items-center gap-2 px-6 py-3.5 text-[0.78rem] font-normal uppercase tracking-[0.14em] transition-colors duration-300 ${styles} ${className}`;
+  const cls = `group/btn inline-flex items-center gap-3 border-b border-ink/60 pb-1.5 text-[0.82rem] font-normal uppercase tracking-[0.14em] text-ink transition-colors duration-300 hover:border-ink hover:text-mute ${className}`;
+  const arrow = <span aria-hidden className="transition-transform duration-300 group-hover/btn:translate-x-1">→</span>;
   return /^https?:/.test(href) ? (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>{children}</a>
+    <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>{children}{arrow}</a>
   ) : (
-    <Link href={href} className={cls}>{children}</Link>
+    <Link href={href} className={cls}>{children}{arrow}</Link>
   );
 }
 

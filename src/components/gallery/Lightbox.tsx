@@ -3,15 +3,15 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Photo } from "@/data/types";
 import { ArchPlaceholder } from "@/components/ui/ArchPlaceholder";
-import { RATIO, RATIO_NUM } from "@/components/ui/bits";
+import { photoRatio } from "@/lib/content";
 
 function Frame({ photo }: { photo: Photo }) {
   const [state, setState] = useState<"loading" | "ok" | "error">("loading");
-  const ratio = RATIO_NUM[photo.orientation];
+  const ratio = photoRatio(photo);
   return (
     <div
       className="relative overflow-hidden bg-black/40"
-      style={{ aspectRatio: RATIO[photo.orientation], width: `min(100%, calc(70vh * ${ratio}))` }}
+      style={{ aspectRatio: String(ratio), width: `min(100%, calc(70vh * ${ratio}))` }}
     >
       {state !== "ok" && <ArchPlaceholder seed={photo.id} label={photo.alt} />}
       {state !== "error" && (

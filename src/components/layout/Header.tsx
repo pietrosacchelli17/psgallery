@@ -23,10 +23,10 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-cream/95 backdrop-blur">
+    <header className="sticky top-0 z-40 bg-cream/95 backdrop-blur">
       <a
         href="https://petrus-atelier-site.vercel.app"
-        className="block border-b border-line px-5 py-1.5 text-[0.65rem] uppercase tracking-[0.16em] text-mute transition-colors hover:text-ink sm:px-8 lg:px-12"
+        className="block px-5 pt-2 text-[0.72rem] uppercase tracking-[0.14em] text-mute transition-colors hover:text-ink sm:px-8 lg:px-12"
       >
         ← Petrus Atelier
       </a>
@@ -38,7 +38,7 @@ export function Header() {
               key={n.href}
               href={n.href}
               aria-current={active(n.href) ? "page" : undefined}
-              className={`link-u py-1 text-[0.72rem] font-normal uppercase tracking-[0.14em] ${active(n.href) ? "text-ink" : "text-mute hover:text-ink"}`}
+              className={`link-u py-1 text-[0.8rem] font-normal uppercase tracking-[0.14em] ${active(n.href) ? "text-ink" : "text-mute hover:text-ink"}`}
             >
               {n.label}
             </Link>
@@ -58,10 +58,10 @@ export function Header() {
         </button>
       </div>
       {open && (
-        <nav id="mobile-nav" aria-label="Mobile" className="border-t border-line bg-cream md:hidden">
+        <nav id="mobile-nav" aria-label="Mobile" className="bg-cream md:hidden">
           <ul className="px-5 py-3">
             {NAV.map((n) => (
-              <li key={n.href} className="border-b border-line last:border-0">
+              <li key={n.href}>
                 <Link href={n.href} onClick={() => setOpen(false)} className="font-display block py-3 text-3xl font-light">
                   {n.label}
                 </Link>

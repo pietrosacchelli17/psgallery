@@ -9,15 +9,17 @@ interface Slide {
   title: string;
   meta: string;
   href: string;
+  /** width / height of the photograph */
+  ratio: number;
 }
 
-/** Where each photograph lands on the pile (left, top as % of the pile), so they overlap like loose prints. */
-const SPOTS: [number, number][] = [[0, 4], [24, 0], [8, 20], [26, 15]];
-const KEEP = 3;
+/** Two resting places for a photograph on the pile; they alternate so each print overlaps the last on purpose. */
+const SPOTS: [number, number][] = [[0, 8], [32, 0]];
+const KEEP = 2;
 
 /**
- * A pile of photographs in the middle of the page. The next one lands on top, the previous ones stay
- * behind it. Click, arrow keys or swipe to move on; it also advances by itself.
+ * A small pile of prints. The next photograph lands on top, the previous one stays behind it, and every
+ * photograph keeps its own proportions. Click, arrow keys or swipe to move on; it also advances by itself.
  */
 export function FullViewer({ slides }: { slides: Slide[] }) {
   const n = slides.length;
@@ -38,7 +40,7 @@ export function FullViewer({ slides }: { slides: Slide[] }) {
 
   useEffect(() => {
     if (paused || n < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = setInterval(() => go(1), 3400);
+    const t = setInterval(() => go(1), 4200);
     return () => clearInterval(t);
   }, [paused, n, go]);
 
@@ -46,10 +48,10 @@ export function FullViewer({ slides }: { slides: Slide[] }) {
   const s = slides[i];
 
   return (
-    <section
+    <figure
       aria-roledescription="carousel"
       aria-label="Selected photographs"
-      className="on-ink relative isolate flex h-[calc(100svh-5.75rem)] min-h-[460px] flex-col overflow-hidden bg-black text-white"
+      className="w-full"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={(e) => { touchX.current = e.touches[0].clientX; }}
@@ -60,49 +62,48 @@ export function FullViewer({ slides }: { slides: Slide[] }) {
         touchX.current = null;
       }}
     >
-      <div className="flex min-h-0 flex-1 items-center justify-center">
-        <div
-          className="relative cursor-pointer"
-          style={{ width: "min(84vw, calc((100svh - 14rem) / 1.275), 560px)", aspectRatio: "4 / 5.1" }}
-          onClick={() => go(1)}
-        >
-          {slides.map((sl, k) => {
-            const d = (i - k + n) % n; // 0 = on top, 1.. = further behind
-            const shown = d < KEEP;
-            const [left, top] = SPOTS[k % SPOTS.length];
-            return (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                key={sl.id}
-                src={sl.image}
-                alt={shown ? sl.alt : ""}
-                aria-hidden={!shown}
-                loading={k < 3 ? "eager" : "lazy"}
-                draggable={false}
-                className="absolute aspect-[3/4] w-[74%] object-cover transition-[opacity,transform,filter] duration-[900ms] ease-[cubic-bezier(.2,.7,.2,1)] motion-reduce:transition-none"
-                style={{
-                  left: `${left}%`,
-                  top: `${top}%`,
-                  zIndex: shown ? 10 - d : 0,
-                  opacity: shown ? 1 : 0,
-                  transform: shown ? "none" : "translateY(18px)",
-                  filter: d === 0 ? "none" : "brightness(.55)",
-                }}
-              />
-            );
-          })}
-        </div>
+      <div
+        className="relative mx-auto cursor-pointer"
+        style={{ width: "min(100%, calc((100svh - 14rem) * 0.98), 680px)", aspectRatio: "1 / 1.02" }}
+        onClick={() => go(1)}
+      >
+        {slides.map((sl, k) => {
+          const d = (i - k + n) % n; // 0 = on top, 1 = just behind
+          const shown = d < KEEP;
+          const [left, top] = SPOTS[k % SPOTS.length];
+          // Wide photographs take more of the width, tall ones less, so the pile keeps one visual weight.
+          const w = sl.ratio >= 1 ? 72 : 66;
+          return (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              key={sl.id}
+              src={sl.image}
+              alt={shown ? sl.alt : ""}
+              aria-hidden={!shown}
+              loading={k < 3 ? "eager" : "lazy"}
+              draggable={false}
+              className="absolute h-auto transition-[opacity,transform,filter] duration-[900ms] ease-[cubic-bezier(.2,.7,.2,1)] motion-reduce:transition-none"
+              style={{
+                width: `${w}%`,
+                aspectRatio: String(sl.ratio),
+                left: `${left}%`,
+                top: `${top}%`,
+                zIndex: shown ? 10 - d : 0,
+                opacity: shown ? 1 : 0,
+                transform: shown ? "none" : "translateY(16px)",
+                filter: d === 0 ? "none" : "brightness(.5)",
+              }}
+            />
+          );
+        })}
       </div>
 
-      <div className="h-[56px] shrink-0 border-t border-white/15 bg-black px-5 sm:px-8 lg:px-12">
-        <div className="mx-auto grid h-full max-w-[1500px] grid-cols-[1fr_auto_1fr] items-center gap-4 text-xs">
-          <Link href={s.href} className="link-u justify-self-start truncate">
-            {s.title}<span className="text-white/60"> · {s.meta}</span>
-          </Link>
-          <p aria-live="polite" className="tabular-nums text-white/80">({i + 1}/{n})</p>
-          <span />
-        </div>
-      </div>
-    </section>
+      <figcaption aria-live="polite" className="mx-auto mt-6 flex items-baseline justify-between gap-6 text-[0.85rem]" style={{ width: "min(100%, calc((100svh - 14rem) * 0.98), 680px)" }}>
+        <Link href={s.href} className="link-u truncate text-ink">
+          {s.title}<span className="text-mute"> · {s.meta}</span>
+        </Link>
+        <span className="shrink-0 tabular-nums text-mute">{String(i + 1).padStart(2, "0")} / {String(n).padStart(2, "0")}</span>
+      </figcaption>
+    </figure>
   );
 }

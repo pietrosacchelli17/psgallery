@@ -199,4 +199,17 @@ export const photos: Photo[] = [
     image: "/psgallery/images/series/london/07.jpg",
     demo: false,
   },
+  {
+    id: "helsinki-05",
+    series: "helsinki",
+    title: "Alvar Aalto House",
+    alt: "A wide straw hat hung on a woven fibre wall between timber battens, beside a brick fireplace and a trailing pothos plant, inside the Alvar Aalto House, Helsinki",
+    subject: "Interiors",
+    year: 2024,
+    building: "Alvar Aalto House",
+    architect: "Alvar Aalto",
+    orientation: "portrait",
+    image: "/psgallery/images/series/helsinki/05.jpg",
+    demo: false,
+  },
 ];

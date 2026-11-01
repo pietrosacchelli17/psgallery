@@ -89,4 +89,15 @@ export const photos: Photo[] = [
     image: "/psgallery/images/series/london/01.jpg",
     demo: false,
   },
+  {
+    id: "london-02",
+    series: "london",
+    title: "London",
+    alt: "The corner of a black-painted brick house seen from below, with a triangular scar of stepped brickwork where the corner was cut away",
+    subject: "Facades",
+    year: 2024,
+    orientation: "portrait",
+    image: "/psgallery/images/series/london/02.jpg",
+    demo: false,
+  },
 ];

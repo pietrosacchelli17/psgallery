@@ -138,4 +138,16 @@ export const photos: Photo[] = [
     image: "/psgallery/images/series/london/04.jpg",
     demo: false,
   },
+  {
+    id: "helsinki-04",
+    series: "helsinki",
+    title: "Helsinki Airport",
+    alt: "A tall timber-slatted wall curving into a ceiling, with a skylight and white rectangular recesses, inside Helsinki Airport",
+    subject: "Interiors",
+    year: 2025,
+    building: "Helsinki Airport",
+    orientation: "portrait",
+    image: "/psgallery/images/series/helsinki/04.jpg",
+    demo: false,
+  },
 ];

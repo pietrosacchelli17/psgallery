@@ -113,4 +113,16 @@ export const photos: Photo[] = [
     image: "/psgallery/images/series/london/03.jpg",
     demo: false,
   },
+  {
+    id: "helsinki-03",
+    series: "helsinki",
+    title: "Kellosaari Reserve Power Plant",
+    alt: "Two tall steel chimneys rising from curved metal-clad drums and timber-faced concrete towers of the Kellosaari power plant, under tram wires and a blue sky",
+    subject: "Structure",
+    year: 2024,
+    building: "Kellosaari Reserve Power Plant",
+    orientation: "portrait",
+    image: "/psgallery/images/series/helsinki/03.jpg",
+    demo: false,
+  },
 ];

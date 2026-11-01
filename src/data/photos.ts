@@ -100,4 +100,17 @@ export const photos: Photo[] = [
     image: "/psgallery/images/series/london/02.jpg",
     demo: false,
   },
+  {
+    id: "london-03",
+    series: "london",
+    title: "Barbican Centre",
+    alt: "Tiers of raw concrete balconies in the Barbican Centre conservatory, overgrown with palms, monstera and climbing plants under a glass roof",
+    subject: "Structure",
+    year: 2024,
+    building: "Barbican Centre",
+    architect: "Chamberlin, Powell and Bon",
+    orientation: "portrait",
+    image: "/psgallery/images/series/london/03.jpg",
+    demo: false,
+  },
 ];

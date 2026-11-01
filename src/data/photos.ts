@@ -125,4 +125,17 @@ export const photos: Photo[] = [
     image: "/psgallery/images/series/helsinki/03.jpg",
     demo: false,
   },
+  {
+    id: "london-04",
+    series: "london",
+    title: "Barbican",
+    alt: "Rows of bush-hammered concrete columns carrying a deep concrete beam over a red-tiled walkway and green water at the Barbican",
+    subject: "Structure",
+    year: 2024,
+    building: "Barbican Estate",
+    architect: "Chamberlin, Powell and Bon",
+    orientation: "portrait",
+    image: "/psgallery/images/series/london/04.jpg",
+    demo: false,
+  },
 ];

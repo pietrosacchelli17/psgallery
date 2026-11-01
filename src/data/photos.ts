@@ -174,4 +174,16 @@ export const photos: Photo[] = [
     image: "/psgallery/images/series/london/06.jpg",
     demo: false,
   },
+  {
+    id: "carrara-01",
+    series: "carrara",
+    title: "Emersa Console, process",
+    alt: "A white marble slab on timber bearers, drilled with a grid of round pockets and ruled with fine horizontal lines, in a Carrara stone yard among blocks of marble and stone",
+    subject: "Materials",
+    year: 2025,
+    building: "Emersa Console",
+    orientation: "portrait",
+    image: "/psgallery/images/series/carrara/01.jpg",
+    demo: false,
+  },
 ];

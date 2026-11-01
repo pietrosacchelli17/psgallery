@@ -64,4 +64,17 @@ export const series: Series[] = [
     featured: true,
     demo: false,
   },
+  {
+    slug: "carrara",
+    title: "Carrara",
+    city: "Carrara",
+    country: "Italy",
+    era: "Contemporary",
+    materials: "Marble",
+    summary: "Marble in the making, Carrara 2025.",
+    description: ["Photographs of marble being worked in Carrara, Italy, in 2025, including the process of the Emersa Console."],
+    image: "/psgallery/images/series/carrara/cover.jpg",
+    featured: true,
+    demo: false,
+  },
 ];

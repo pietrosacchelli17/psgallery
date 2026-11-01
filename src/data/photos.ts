@@ -161,4 +161,17 @@ export const photos: Photo[] = [
     image: "/psgallery/images/series/london/05.jpg",
     demo: false,
   },
+  {
+    id: "london-06",
+    series: "london",
+    title: "Milton Gate",
+    alt: "Milton Gate, London (1991) by Denys Lasdun with Peter Softley & Associates: a postmodern office building with castle-like massing, stepped towers and a reflective green-tinted glass facade",
+    subject: "Facades",
+    year: 2024,
+    building: "Milton Gate (1991)",
+    architect: "Denys Lasdun with Peter Softley & Associates",
+    orientation: "portrait",
+    image: "/psgallery/images/series/london/06.jpg",
+    demo: false,
+  },
 ];

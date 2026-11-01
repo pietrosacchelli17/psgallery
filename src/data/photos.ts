@@ -150,4 +150,15 @@ export const photos: Photo[] = [
     image: "/psgallery/images/series/helsinki/04.jpg",
     demo: false,
   },
+  {
+    id: "london-05",
+    series: "london",
+    title: "UFO",
+    alt: "A round orange lifeboat capsule moored on a London canal beside narrowboats, under a graffitied footbridge",
+    subject: "Structure",
+    year: 2024,
+    orientation: "portrait",
+    image: "/psgallery/images/series/london/05.jpg",
+    demo: false,
+  },
 ];

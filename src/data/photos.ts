@@ -78,4 +78,15 @@ export const photos: Photo[] = [
     image: "/psgallery/images/series/naoshima/01.jpg",
     demo: false,
   },
+  {
+    id: "london-01",
+    series: "london",
+    title: "London",
+    alt: "A silver Airstream trailer covered in graffiti and colour parked on a London street, in front of red brick and pale stone buildings",
+    subject: "Facades",
+    year: 2024,
+    orientation: "portrait",
+    image: "/psgallery/images/series/london/01.jpg",
+    demo: false,
+  },
 ];

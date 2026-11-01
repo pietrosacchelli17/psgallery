@@ -52,4 +52,16 @@ export const series: Series[] = [
     featured: true,
     demo: false,
   },
+  {
+    slug: "london",
+    title: "London",
+    city: "London",
+    country: "United Kingdom",
+    era: "Contemporary",
+    summary: "Street scenes, London 2024.",
+    description: ["Photographs made around London in 2024."],
+    image: "/psgallery/images/series/london/cover.jpg",
+    featured: true,
+    demo: false,
+  },
 ];

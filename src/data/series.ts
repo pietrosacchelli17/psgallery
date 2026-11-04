@@ -23,7 +23,7 @@ export const series: Series[] = [
     materials: "Marble, stone",
     summary: "La Casa di Marmo, Milan Design Week 2026, and Fondazione Prada.",
     description: ["Photographs from Milan Design Week 2026, including La Casa di Marmo by Hannes Peer for Margraf."],
-    image: "/psgallery/images/series/milan/cover.jpg",
+    image: "/psgallery/images/series/milan/cover-up.jpg",
     featured: true,
     demo: false,
   },

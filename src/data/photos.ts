@@ -28,7 +28,7 @@ export const photos: Photo[] = [
     building: "La Casa di Marmo",
     architect: "Hannes Peer for Margraf",
     orientation: "portrait",
-    image: "/psgallery/images/series/milan/01.jpg",
+    image: "/psgallery/images/series/milan/01-up.jpg",
     demo: false,
   },
   {

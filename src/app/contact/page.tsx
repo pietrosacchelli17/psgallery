@@ -14,7 +14,7 @@ export default function Contact() {
         <div className="lg:col-span-5">
           <p className="max-w-[44ch] text-lg">Questions about the archive, prints, collaborations or commissions: send a message or find PS Gallery on Instagram.</p>
           <dl className="mt-8 text-sm">
-            <div className="border-t border-line py-3"><dt className="eyebrow">Based in</dt><dd className="mt-1">London</dd></div>
+            <div className="border-t border-line py-3"><dt className="eyebrow">Based in</dt><dd className="mt-1">Italy</dd></div>
             <div className="border-t border-line py-3"><dt className="eyebrow">Instagram</dt><dd className="mt-1"><a className="link-u" href={SITE.instagram} target="_blank" rel="noopener noreferrer">{SITE.instagramHandle}</a></dd></div>
             <div className="border-t border-line py-3"><dt className="eyebrow">Email</dt><dd className="mt-1 text-mute">{SITE.email ?? "To be added (not yet set in the studio site)"}</dd></div>
           </dl>

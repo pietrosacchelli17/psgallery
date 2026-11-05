@@ -19,7 +19,7 @@
 html {
   scroll-behavior: smooth;
   /* Quiet but readable: every rem-based size scales with this. */
-  font-size: 13px;
+  font-size: 14.5px;
 }
 body {
   background: var(--color-cream);

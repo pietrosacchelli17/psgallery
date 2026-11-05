@@ -35,6 +35,8 @@ export interface Photo {
   title: string;
   /** Alt text. Describes what the real photograph should show; edit with the real image. */
   alt: string;
+  /** Short written description shown on the photograph page. */
+  description?: string;
   subject: Subject;
   /** Year photographed; omit when not known. */
   year?: number;

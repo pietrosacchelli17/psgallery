@@ -41,6 +41,7 @@ export default async function PhotoPage({ params }: PageProps<"/photo/[id]">) {
         <aside className="lg:col-span-4">
           <p className="eyebrow mb-3">Image {index} of {total} {photo.demo && <DemoBadge className="ml-2" />}</p>
           <h1 className="display h2">{photo.title}</h1>
+          {photo.description && <p className="mt-6 max-w-[48ch] text-mute">{photo.description}</p>}
           <dl className="mt-8">
             {facts.map(([k, v]) => (
               <div key={k} className="flex justify-between gap-6 py-2.5 text-[0.95rem]">

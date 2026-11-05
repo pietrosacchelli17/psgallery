@@ -34,7 +34,7 @@ export function Header() {
       </div>
       <div className="mx-auto flex h-[4.25rem] max-w-[1280px] items-center justify-between px-[clamp(1.25rem,4vw,3rem)]">
         <span onClick={() => setOpen(false)}><Wordmark /></span>
-        <nav aria-label="Primary" className="hidden items-center gap-9 md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-12 md:flex">
           {NAV.map((n) => (
             <Link
               key={n.href}

@@ -117,3 +117,6 @@ h1, h2, h3 { max-width: none !important; }
 @media (max-width: 700px) {
   body #mobile-nav a { font-size: 15px !important; line-height: 1.3 !important; padding-block: 12px !important; }
 }
+
+/* Menu links 15px with more space, on desktop too */
+body header nav a { font-size: 15px !important; }

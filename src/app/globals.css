@@ -108,3 +108,7 @@ body *:not(svg):not(svg *) {
 }
 
 h1, h2, h3 { max-width: none !important; }
+
+@media (max-width: 700px) {
+  html { font-size: 12.5px; }
+}

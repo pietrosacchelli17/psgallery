@@ -32,7 +32,7 @@ export function PhotoViewer({ photo, siblings, prevId, nextId, titles }: { photo
           <Picture src={photo.image} alt={photo.alt} seed={photo.id} priority ratio={String(photoRatio(photo))} className="w-full" />
         </div>
       </button>
-      <p className="mt-3 text-center text-[0.8rem] text-mute">← → previous / next · F full screen</p>
+      <p className="mt-3 hidden text-center text-[0.8rem] text-mute md:block">← → previous / next · F full screen</p>
       {open !== null && <Lightbox photos={siblings} index={open} onIndex={setOpen} onClose={() => setOpen(null)} seriesTitle={(s) => titles[s]} />}
     </>
   );

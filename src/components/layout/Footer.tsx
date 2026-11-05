@@ -30,7 +30,7 @@ export function Footer() {
         </nav>
       </Container>
       <Container className="flex flex-col gap-2 py-8 text-[0.8rem] text-mute sm:flex-row sm:justify-between">
-        <p>© {new Date().getFullYear()} Pietro Sacchelli · Italy</p>
+        <p>© {new Date().getFullYear()} Pietro Sacchelli</p>
         <p>All photographs by Pietro Sacchelli.</p>
       </Container>
     </footer>

@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Tomorrow } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
-const serif = Tomorrow({
+const serif = Hanken_Grotesk({
   variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["200", "300", "400"],
+  weight: ["200", "300", "400", "500"],
 });
 
 export const metadata: Metadata = {

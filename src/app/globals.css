@@ -8,8 +8,8 @@
   --color-mute: #a8a8a4;
   --color-stone: #8a8a8a;
   --color-stone-deep: #8a8a8a;
-  --font-display: var(--font-serif), "Chakra Petch", system-ui, sans-serif;
-  --font-sans: var(--font-serif), "Chakra Petch", system-ui, sans-serif;
+  --font-display: var(--font-serif), "Inter", system-ui, sans-serif;
+  --font-sans: var(--font-serif), "Inter", system-ui, sans-serif;
 }
 
 :root {
@@ -97,3 +97,14 @@ em { font-style: normal; }
   .slide.on > * { animation: none; }
 }
 body.lock { overflow: hidden; }
+
+/* One size for all text, plain and unspaced (like reefturner.studio). Hierarchy comes from space and grey. */
+body *:not(svg):not(svg *) {
+  font-size: 1rem !important;
+  line-height: 1.65 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  font-weight: 400 !important;
+}
+
+h1, h2, h3 { max-width: none !important; }
